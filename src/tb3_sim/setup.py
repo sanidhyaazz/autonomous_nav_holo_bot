@@ -1,5 +1,6 @@
 from setuptools import find_packages, setup
-
+import os
+from glob import glob
 package_name = 'tb3_sim'
 
 setup(
@@ -11,7 +12,9 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name),
-         glob('launch/*launch.[pxy][yma]*')),
+         glob('launch/*launch.[pxy][yma]*')),           
+        (os.path.join('share', package_name, 'maps/'),
+         glob('maps/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -26,6 +29,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'amcl_init_pose_publisher = tb3_sim.set_init_amcl_pose:main',   #adding the node file here,template = pkg.fileName:main  
         ],
     },
 )

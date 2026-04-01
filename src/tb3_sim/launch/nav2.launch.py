@@ -21,7 +21,7 @@ def generate_launch_description():
       launch_arguments={
           'use_sim_time': use_sim_time,
           'autostart': autostart,
-          'map': os.path.join(pkg_tb3_sim, 'maps', 'map.yaml')
+          'map': os.path.join(pkg_tb3_sim, 'maps', 'house_map.yaml')
       }.items()
   )
 
